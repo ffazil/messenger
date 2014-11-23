@@ -24,7 +24,8 @@ public class Aggregator implements Wire{
 
     @Override
     public Transport connect() throws IOException {
-        return null;
+        Transport transport = new Transport(this);
+        return transport;
     }
 
     @Override
@@ -40,5 +41,14 @@ public class Aggregator implements Wire{
     @Override
     public String getPassword() {
         return password;
+    }
+
+    @Override
+    public String toString() {
+        return "Aggregator{" +
+                "url=" + url +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

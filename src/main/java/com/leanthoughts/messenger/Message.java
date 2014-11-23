@@ -58,4 +58,15 @@ public class Message {
     public void setPushid(String pushid) {
         this.pushid = pushid;
     }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "uid='" + uid + '\'' +
+                ", pin='" + pin + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", message='" + message + '\'' +
+                ", pushid='" + pushid + '\'' +
+                '}';
+    }
 }

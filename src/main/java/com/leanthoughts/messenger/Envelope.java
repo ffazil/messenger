@@ -25,7 +25,10 @@ public interface Envelope {
 
         @Override
         public Message unwrap() throws IOException {
-            return null;
+            message.setMessage(this.body);
+            message.setMobile(getNumbersCS());
+            message.setPushid("1");
+            return message;
         }
 
         public Text sender(MobileNumber mobileNumber){
@@ -50,6 +53,11 @@ public interface Envelope {
         public Text body(String body){
             this.body = body;
             return this;
+        }
+
+        public String getNumbersCS(){
+            //TODO
+            return mobileNumbers.toString();
         }
     }
 }

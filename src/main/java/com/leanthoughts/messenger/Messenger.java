@@ -1,5 +1,7 @@
 package com.leanthoughts.messenger;
 
+import java.io.IOException;
+
 /**
  * @author FFL
  * @since 21-11-2014
@@ -8,7 +10,7 @@ package com.leanthoughts.messenger;
  * Messenger delivers an Envelope to recipients via an Aggregator.
  */
 public interface Messenger {
-    void send(Envelope envelope);
+    void send(Envelope envelope) throws IOException;
 
     final class Default implements Messenger{
 
@@ -29,8 +31,13 @@ public interface Messenger {
         }
 
         @Override
-        public void send(Envelope envelope) {
+        public void send(Envelope envelope) throws IOException {
             this.envelope = envelope;
+            Message message = envelope.unwrap();
+            message.setUid(wire.getUsername());
+            message.setPin(wire.getPassword());
+            Transport transport = wire.connect();
+            transport.push(message);
 
         }
     }
