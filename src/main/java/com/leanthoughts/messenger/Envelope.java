@@ -1,5 +1,7 @@
 package com.leanthoughts.messenger;
 
+import com.google.common.base.Joiner;
+
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
@@ -56,8 +58,17 @@ public interface Envelope {
         }
 
         public String getNumbersCS(){
-            //TODO
-            return mobileNumbers.toString();
+            String result = Joiner.on(",").join(asNumberSet());
+            return result;
+
+        }
+
+        public Set<String> asNumberSet(){
+            Set<String> numbers = new HashSet<String>(0);
+            for(MobileNumber mobileNumber : mobileNumbers){
+                numbers.add(mobileNumber.getNumber());
+            }
+            return numbers;
         }
     }
 }

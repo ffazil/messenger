@@ -1,5 +1,7 @@
 package com.leanthoughts.messenger;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /**
  * @author FFL
  * @since 21-11-2014
@@ -9,14 +11,14 @@ package com.leanthoughts.messenger;
  */
 public class MobileNumber {
 
-    private static final String pattern = "^([0]|\\+91)?\\d{10}";
-
     private String number = null;
 
     public MobileNumber(String number){
         boolean validated = validate(number);
         if(validated)
             this.number = number;
+
+
     }
 
     public String getNumber() {
@@ -24,7 +26,21 @@ public class MobileNumber {
     }
 
     private boolean validate(String number) {
-        return number.matches(pattern);
+        boolean flag;
+        int length=number.length();
+        String pattern;
+
+        if(length>10)
+            pattern="^(?:0091|\\+91|91|0)[7-9][0-9]{9}$";
+        else
+            pattern="^[7-9][0-9]{9}$";
+
+        Pattern p=Pattern.compile(pattern);
+        Matcher m=p.matcher(number);
+        flag=m.matches();
+        return flag;
     }
+
+
 
 }

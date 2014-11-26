@@ -32,10 +32,11 @@ public class MessagingTest {
 
         messenger.send(
                 new Envelope.Text()
-                .sender(new MobileNumber("+919686046179"))
-                .recipient(new MobileNumber("denny's phone")) //plural method available
-                .subject("New Order")
-                .body("order details")
+                        .sender(new MobileNumber("+919686046179"))
+                        .recipient(new MobileNumber("+918971877369")) //plural method available
+                        .recipient(new MobileNumber("+919986050253"))
+                        .subject("New Order")
+                        .body("order+details")
         );
     }
 }
