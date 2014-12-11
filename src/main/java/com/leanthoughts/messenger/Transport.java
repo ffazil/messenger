@@ -34,18 +34,11 @@ public class Transport {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        /*int httpResponse=con.getResponseCode();
-        System.out.println(httpResponse);
+        con.setRequestMethod("GET");
+        con.getContent();
 
-        if(httpResponse!=200)
-            System.out.println(httpResponse);//TODO wait and retry
-
-        BufferedReader br = new BufferedReader(new InputStreamReader(url.openStream()));
-        String response = "";
-        while (null != (response = br.readLine())) {
-            System.out.println(response);
-        }*/
 
     }
 }
