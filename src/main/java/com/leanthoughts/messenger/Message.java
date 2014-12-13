@@ -13,7 +13,9 @@ public class Message {
     private String pin;
     private String mobile;
     private String message;
-    private String pushid;
+    private int tempid;
+    private int route;
+    private String senderid;
 
     public Message(){
 
@@ -51,13 +53,25 @@ public class Message {
         this.message = message;
     }
 
-    public String getPushid() {
-        return pushid;
+    public int getTempid() {
+        return tempid;
     }
 
-    public void setPushid(String pushid) {
-        this.pushid = pushid;
+    public void setTempid(int tempid) {
+        this.tempid = tempid;
     }
+
+    public int getRoute() {
+        return route;
+    }
+
+    public void setRoute(int route) {
+        this.route=route;
+    }
+
+    public void setSenderid(String senderid) {this.senderid = senderid;}
+
+    public String getSenderid() {return senderid;}
 
     @Override
     public String toString() {
@@ -66,7 +80,9 @@ public class Message {
                 ", pin='" + pin + '\'' +
                 ", mobile='" + mobile + '\'' +
                 ", message='" + message + '\'' +
-                ", pushid='" + pushid + '\'' +
+                ", route='" + route + '\'' +
+                ", tempid='" + tempid + '\'' +
+                ", senderid='" + senderid + '\'' +
                 '}';
     }
 }

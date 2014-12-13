@@ -15,11 +15,15 @@ public class Aggregator implements Wire{
     private final URL url;
     private final String username;
     private final String password;
+    private final int route;
+    private final String senderid;
 
-    public Aggregator(URL url, String username, String password){
+    public Aggregator(URL url, String username, String password, int route, String senderid){
         this.url = url;
         this.username = username;
         this.password = password;
+        this.route = route;
+        this.senderid = senderid;
     }
 
     @Override
@@ -39,9 +43,17 @@ public class Aggregator implements Wire{
     }
 
     @Override
-    public String getPassword() {
+     public String getPassword() {
         return password;
     }
+
+    @Override
+    public int getRoute() {
+        return route;
+    }
+
+    @Override
+    public String getSenderid() { return senderid; }
 
     @Override
     public String toString() {
@@ -49,6 +61,8 @@ public class Aggregator implements Wire{
                 "url=" + url +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", route='" + route + '\'' +
+                ", senderid='" + senderid + '\'' +
                 '}';
     }
 }

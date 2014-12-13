@@ -13,12 +13,18 @@ public class MobileNumber {
 
     private String number = null;
 
-    public MobileNumber(String number){
+    public MobileNumber(String number) throws Exception{
         boolean validated = validate(number);
-        if(validated)
+        if(validated) {
+            if (number.length() > 10) {
+                String tempnum = number.substring(number.length() - 10);
+                number = tempnum;
+            }
             this.number = number;
 
-
+        }
+        else
+            System.out.println("Invalid Number");//!!!!!!THROW EXCEPTION!!!!!!!!
     }
 
     public String getNumber() {

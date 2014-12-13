@@ -21,22 +21,22 @@ public class MessagingTest {
 
 
     /**
-     * Test case to send a text message.
-     * @throws MalformedURLException
-     */
+    * Test case to send a text message.
+    * @throws MalformedURLException
+    */
     @Test
     public void sendTextMessage() throws Exception {
         Messenger messenger = new Messenger.Default()
-                .using(new Aggregator(new URL("http://www.smsalertbox.com/api/sms.php"), "666168616466617a696c736d73", "5471e920c22f3")
-        );
+                .using(new Aggregator(new URL("http://www.smsalertbox.com/api/sms.php"), "666168616466617a696c736d73", "5471e920c22f3",5,"PRABHA")
+                );
 
         messenger.send(
                 new Envelope.Text()
-                        .sender(new MobileNumber("+919686046179"))
-                        .recipient(new MobileNumber("+918971877369")) //plural method available
-                        .recipient(new MobileNumber("+919986050253"))
-                        .subject("New Order")
-                        .body("order+details")
+                        //.sender(new MobileNumber("+919686046179"))
+                        .recipient(new MobileNumber("+918971877369"))
+                                // .subject("New Order")
+                        .body("Woodsoft+SMS+Atlast")
+                        .tempid(1)
         );
     }
 }

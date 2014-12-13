@@ -1,6 +1,5 @@
 package com.leanthoughts.messenger.test;
 
-import com.google.common.collect.Sets;
 import com.leanthoughts.messenger.MobileNumber;
 import org.junit.Assert;
 import org.junit.Test;
@@ -34,4 +33,5 @@ public class MobileNumberTest {
             Assert.assertNull(mobileNumber.getNumber());
         }
     }
+
 }

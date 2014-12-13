@@ -36,6 +36,8 @@ public interface Messenger {
             Message message = envelope.unwrap();
             message.setUid(wire.getUsername());
             message.setPin(wire.getPassword());
+            message.setRoute(wire.getRoute());
+            message.setSenderid(wire.getSenderid());
             Transport transport = wire.connect();
             transport.push(message);
 

@@ -15,6 +15,7 @@ public interface Wire {
     public URL getURL();
     public String getUsername();
     public String getPassword();
-
+    public int getRoute();
+    public String getSenderid();
     public String toString();
 }

@@ -24,18 +24,19 @@ public interface Envelope {
         private Message message = new Message();
         private Set<MobileNumber> mobileNumbers = new HashSet<MobileNumber>(0);
         private String body;
+        private int tempid;
 
         @Override
         public Message unwrap() throws IOException {
             message.setMessage(this.body);
             message.setMobile(getNumbersCS());
-            message.setPushid("1");
+            message.setTempid(this.tempid);
             return message;
         }
 
-        public Text sender(MobileNumber mobileNumber){
-            return this;
-        }
+        //public Text sender(MobileNumber mobileNumber){
+        //    return this;
+        //}
 
         public Text recipient(MobileNumber mobileNumber){
             this.mobileNumbers.add(mobileNumber);
@@ -54,6 +55,11 @@ public interface Envelope {
 
         public Text body(String body){
             this.body = body;
+            return this;
+        }
+
+        public Text tempid(int tempid){
+            this.tempid = tempid;
             return this;
         }
 

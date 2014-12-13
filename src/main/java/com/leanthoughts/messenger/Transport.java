@@ -1,7 +1,6 @@
 package com.leanthoughts.messenger;
 
 import java.io.IOException;
-import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
@@ -13,6 +12,7 @@ import java.net.URL;
  */
 public class Transport {
     private Wire wire;
+
     private Message message;
 
     public Transport(Wire wire){
@@ -29,15 +29,16 @@ public class Transport {
 
         URL url = null;
         try {
-            url = new URL(wire.getURL()+"?uid="+wire.getUsername()+"&pin="+wire.getPassword()+"&mobile="+message.getMobile()+"&message="+message.getMessage());
+            url = new URL(wire.getURL()+"?uid="+wire.getUsername()+"&pin="+wire.getPassword()+"&sender="+wire.getSenderid()+"&route="+wire.getRoute()+"&tempid="+message.getTempid()+"&mobile="+message.getMobile()+"&message="+message.getMessage());
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        System.out.println(url);
+        /*HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
-        con.getContent();
+        con.getContent();*/
 
 
     }
