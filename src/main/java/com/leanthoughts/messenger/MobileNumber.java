@@ -23,8 +23,11 @@ public class MobileNumber {
             this.number = number;
 
         }
-        else
-            System.out.println("Invalid Number");//!!!!!!THROW EXCEPTION!!!!!!!!
+        else{
+
+            throw new RuntimeException();
+        }
+
     }
 
     public String getNumber() {

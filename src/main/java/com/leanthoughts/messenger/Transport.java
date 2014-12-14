@@ -1,6 +1,7 @@
 package com.leanthoughts.messenger;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
@@ -35,10 +36,11 @@ public class Transport {
             e.printStackTrace();
         }
 
-        System.out.println(url);
-        /*HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        //System.out.println(url);
+
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
-        con.getContent();*/
+        con.getContent();
 
 
     }

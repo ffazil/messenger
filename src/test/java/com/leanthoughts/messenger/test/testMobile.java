@@ -11,7 +11,7 @@ import org.junit.Test;
 public class testMobile {
     @Test
     public void mobileTest() throws Exception {
-        MobileNumber num = new MobileNumber("09895598535");
+        MobileNumber num = new MobileNumber("+44 11 9895598535");
         System.out.println(num.getNumber());
     }
 }

@@ -18,7 +18,7 @@ public interface Envelope {
 
     /**
      * Implementation of Envelope for a text message.
-     */
+     **/
     final class Text implements Envelope{
 
         private Message message = new Message();
